@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for post in posts %}
+                    <div class="post-preview">
+                        <a href="{{ path('show_post', { id: post.id })}}">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ post.introduction }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posté par {{ post.author }} le {{ post.publishedAt|date('d/m/Y') }}
+                            | <a href="{{ path('edit_post', {id: post.id}) }}">Éditer</a> - <a href="{{ path('delete_post', {id: post.id}) }}">Supprimer</a></p>
+                    </div>
+                    <hr>
+                {% else %}
+                    <p><em>Aucun article</em></p>
+                {% endfor %}
+
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{ path('home', {page: page + 1}) }}">Page suivante →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

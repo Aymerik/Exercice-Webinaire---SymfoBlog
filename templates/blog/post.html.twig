@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block intro %}{{ post.introduction }}{% endblock %}
+
+{% block body %}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <p><em>Article écrit par {{ post.author }} le {{ post.publishedAt|date('d/m/Y') }}</em></p>
+                    <p>{{ post.content }}</p>
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <h2>Poster un commentaire</h2>
+                            {{ form(form) }}
+                            <hr>
+                            <h2>Liste des commentaires</h2>
+                            {% for comment in post.comments %}
+                                <p><strong>Publié le {{ comment.publishedAt|date('d/m/Y') }} par {{ comment.author }} : </strong></p>
+                                <p>{{ comment.content }}</p>
+                                <hr>
+                            {% else %}
+                                <p><em>Aucun commentaire</em></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
