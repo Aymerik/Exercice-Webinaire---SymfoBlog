@@ -27,5 +27,10 @@ Ce repository vous présente la correction du projet. Si vous souhaitez installe
     2. `php bin/console doctrine:database:create` si votre base de données n'existe pas
     3. `php bin/console doctrine:migrations:migrate`
     4. `php bin/console doctrine:fixtures:load`
-    5. `symfony serve`
+    5. `symfony server:start`
 4. Accédez au site en tapant `http://localhost:8000/`dans votre navigateur
+
+## Aller plus loin ?
+La correction contient la gestion des commentaires, la modification et la suppression de posts, ainsi qu'une gestion simplifiée de la pagination.
+
+Pour aller plus loin, vous pouvez mettre en place un espace membre, en vous appuyant sur [la documentation](https://symfony.com/doc/current/security.html).
